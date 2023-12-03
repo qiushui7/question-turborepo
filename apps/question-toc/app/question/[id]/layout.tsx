@@ -1,35 +1,35 @@
-import React from "react";
-import Script from "next/script";
-import {getQuestion} from "@/services/question";
-import {Metadata} from "next";
+import React from "react"
+import Script from "next/script"
+import { getQuestion } from "@/services/question"
+import { Metadata } from "next"
 
 export async function generateMetadata({
-  params,
+    params
 }: {
-  params: { id: string };
+    params: { id: string }
 }): Promise<Metadata> {
-  const { data = { title: "", desc: "" } } = await getQuestion(params.id);
-  return {
-    title: data.title,
-    description: data.desc,
-  };
+    const { data = { title: "", desc: "" } } = await getQuestion(params.id)
+    return {
+        title: data.title,
+        description: data.desc
+    }
 }
 
 const QuestionLayout = async ({
-  children,
-  params,
+    children,
+    params
 }: {
-  children: React.ReactNode;
-  params: { id: string };
+    children: React.ReactNode
+    params: { id: string }
 }) => {
-  const { data = { js: "" } } = await getQuestion(params.id);
+    const { data = { js: "" } } = await getQuestion(params.id)
 
-  return (
-    <>
-      {children}
-      <Script id="page-js">{data.js}</Script>
-    </>
-  );
-};
+    return (
+        <>
+            {children}
+            <Script id="page-js">{data.js}</Script>
+        </>
+    )
+}
 
-export default QuestionLayout;
+export default QuestionLayout

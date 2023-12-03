@@ -1,7 +1,7 @@
-import {usePageInfoStore} from "../store/pageInfoStore";
+import { usePageInfoStore } from "../store/pageInfoStore"
 
 function useGetPageInfo() {
-  return usePageInfoStore();
+    return usePageInfoStore()
 }
 
-export default useGetPageInfo;
+export default useGetPageInfo
