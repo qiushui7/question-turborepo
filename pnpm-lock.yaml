@@ -96,6 +96,9 @@ importers:
       mockjs:
         specifier: ^1.1.0
         version: 1.1.0
+      qrcode.react:
+        specifier: ^3.1.0
+        version: 3.1.0(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -139,6 +142,9 @@ importers:
       '@types/mockjs':
         specifier: ^1.0.10
         version: 1.0.10
+      '@types/qrcode.react':
+        specifier: ^1.0.5
+        version: 1.0.5
       '@types/recharts':
         specifier: ^1.8.28
         version: 1.8.28
@@ -2944,6 +2950,12 @@ packages:
 
   /@types/q@1.5.8:
     resolution: {integrity: sha512-hroOstUScF6zhIi+5+x0dzqrHA1EJi+Irri6b1fxolMTqqHIV/Cg77EtnQcZqZCu8hR3mX2BzIxN4/GzI68Kfw==}
+
+  /@types/qrcode.react@1.0.5:
+    resolution: {integrity: sha512-BghPtnlwvrvq8QkGa1H25YnN+5OIgCKFuQruncGWLGJYOzeSKiix/4+B9BtfKF2wf5ja8yfyWYA3OXju995G8w==}
+    dependencies:
+      '@types/react': 18.2.41
+    dev: true
 
   /@types/qs@6.9.10:
     resolution: {integrity: sha512-3Gnx08Ns1sEoCrWssEgTSJs/rsT2vhGP+Ja9cnnk9k4ALxinORlQneLXFeFKOTJMOeZUFD1s7w+w2AphTpvzZw==}
