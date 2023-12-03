@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { Outlet } from "react-router-dom";
-import { Layout, Spin } from "antd";
+import React, {FC} from "react";
+import {Outlet} from "react-router-dom";
+import {Layout, Spin} from "antd";
 import styles from "./MainLayout.module.scss";
 import Logo from "../components/Logo";
 import UserInfo from "../components/UserInfo";
