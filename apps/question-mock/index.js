@@ -19,8 +19,20 @@ mockList.forEach(item => {
     const { url, method, response } = item
     router[method](url, async ctx => {
         // const res = response()
-        const res = await getRes(response, ctx) // 模拟网络请求的加载状态，1s
-        ctx.body = res // 输入结果
+        if (url==='/api/user/register'||url==='/api/user/login'){
+            ctx.body = await getRes(response, ctx)
+        }else{
+            const token = ctx.request.headers['authorization'];
+            if (token && token.startsWith('Bearer ')) {
+                const actualToken = token.substring(7);
+                // 使用 actualToken 进行后续处理
+                if (actualToken) {
+                    // 模拟网络请求的加载状态，1s
+                    ctx.body = await getRes(response, ctx) // 输入结果
+                }
+            }
+        }
+
     })
 })
 

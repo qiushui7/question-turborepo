@@ -1,11 +1,8 @@
-import React, { FC } from "react";
+import React, {FC} from "react";
 import useGetComponentsInfo from "../../../hooks/useGetComponentsInfo";
-import {
-  ComponentPropsType,
-  getComponentConfByType,
-} from "../../../components/QuestionComponents";
-import { useDispatch } from "react-redux";
-import { changeComponentProps } from "../../../store/componentReducer";
+import {ComponentPropsType, getComponentConfByType,} from "../../../components/QuestionComponents";
+import {useDispatch} from "react-redux";
+import {changeComponentProps} from "../../../store/componentReducer";
 
 const NoProp: FC = () => {
   return <div style={{ textAlign: "center" }}>未选中组件</div>;

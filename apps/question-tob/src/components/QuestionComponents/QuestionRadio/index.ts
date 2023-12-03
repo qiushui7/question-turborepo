@@ -1,5 +1,5 @@
 import Component from "./Component";
-import { QuestionRadioDefaultProps } from "./interface";
+import {QuestionRadioDefaultProps} from "./interface";
 import PropComponent from "./PropComponent";
 import StatComponent from "./StatComponent";
 

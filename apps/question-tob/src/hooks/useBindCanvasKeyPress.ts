@@ -1,19 +1,16 @@
-import { useKeyPress } from "ahooks";
-import { useDispatch, useSelector } from "react-redux";
+import {useKeyPress} from "ahooks";
+import {useDispatch, useSelector} from "react-redux";
 // import { ActionCreators as UndoActionCreators } from 'redux-undo'
 import {
-  ComponentsStateType,
-  copySelectedComponent,
-  pasteCopiedComponent,
-  removeSelectedComponent,
-  selectNextComponent,
-  selectPrevComponent,
+    ComponentsStateType,
+    copySelectedComponent,
+    pasteCopiedComponent,
+    removeSelectedComponent,
+    selectNextComponent,
+    selectPrevComponent,
 } from "../store/componentReducer";
-import {
-  ActionCreators as UndoActionCreators,
-  StateWithHistory,
-} from "redux-undo";
-import { StateType } from "../store";
+import {ActionCreators as UndoActionCreators, StateWithHistory,} from "redux-undo";
+import {StateType} from "../store";
 
 /**
  * 判断 activeElem 是否合法

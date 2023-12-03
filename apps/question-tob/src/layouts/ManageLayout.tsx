@@ -1,32 +1,16 @@
-import React, { FC } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import React, {FC} from "react";
+import {Outlet, useLocation, useNavigate} from "react-router-dom";
 import styles from "./ManageLayout.module.scss";
-import { Button, Divider, message, Space } from "antd";
-import {
-  BarsOutlined,
-  DeleteOutlined,
-  PlusOutlined,
-  StarOutlined,
-} from "@ant-design/icons";
-import { createQuestionService } from "../services/question";
-import { useRequest } from "ahooks";
+import {Button, Divider, message, Space} from "antd";
+import {BarsOutlined, DeleteOutlined, PlusOutlined, StarOutlined,} from "@ant-design/icons";
+import {createQuestionService} from "../services/question";
+import {useRequest} from "ahooks";
 
 type Props = {};
 
 const ManageLayout: FC = (props: Props) => {
   const nav = useNavigate();
   const { pathname } = useLocation();
-  // const [loading,setLoading]=useState(false)
-  // const handleCreateClick=async ()=>{
-  //     setLoading(true)
-  //     const data=await createQuestionService()
-  //     const { id } = data || {}
-  //     if (id){
-  //         nav(`/question/edit/${id}`)
-  //         message.success('创建成功')
-  //     }
-  //     setLoading(false)
-  // }
   const { loading, run: handleCreateClick } = useRequest(
     createQuestionService,
     {

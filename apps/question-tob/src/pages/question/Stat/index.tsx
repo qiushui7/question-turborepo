@@ -1,10 +1,10 @@
-import { Button, Result, Spin } from "antd";
-import React, { FC, useState } from "react";
+import {Button, Result, Spin} from "antd";
+import React, {FC, useState} from "react";
 import useLoadQuestionData from "../../../hooks/useLoadQuestionData";
 import styles from "./index.module.scss";
 import useGetPageInfo from "../../../hooks/useGetPageInfo";
-import { useNavigate } from "react-router-dom";
-import { useTitle } from "ahooks";
+import {useNavigate} from "react-router-dom";
+import {useTitle} from "ahooks";
 import StatHeader from "./StatHeader";
 import ComponentList from "./ComponentList";
 import PageStat from "./PageStat";

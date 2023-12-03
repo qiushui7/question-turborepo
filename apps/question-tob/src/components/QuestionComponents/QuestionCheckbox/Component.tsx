@@ -1,9 +1,6 @@
-import React, { FC } from "react";
-import { Checkbox, Space, Typography } from "antd";
-import {
-  QuestionCheckboxDefaultProps,
-  QuestionCheckboxPropsType,
-} from "./interface";
+import React, {FC} from "react";
+import {Checkbox, Space, Typography} from "antd";
+import {QuestionCheckboxDefaultProps, QuestionCheckboxPropsType,} from "./interface";
 
 const { Paragraph } = Typography;
 

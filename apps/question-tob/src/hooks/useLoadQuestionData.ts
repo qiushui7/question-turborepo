@@ -1,13 +1,14 @@
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-import { useRequest } from "ahooks";
-import { getQuestionService } from "../services/question";
-import { useDispatch } from "react-redux";
-import { resetComponents } from "../store/componentReducer";
-import { resetPageInfo } from "../store/pageInfoReducer";
+import {useParams} from "react-router-dom";
+import {useEffect} from "react";
+import {useRequest} from "ahooks";
+import {getQuestionService} from "../services/question";
+import {useDispatch} from "react-redux";
+import {resetComponents} from "../store/componentReducer";
+import {usePageInfoStore} from "../store/pageInfoStore";
 
 function useLoadQuestionData() {
   const { id = "" } = useParams();
+  const resetPage = usePageInfoStore((state) => state.resetPage);
   const dispatch = useDispatch();
   const { data, loading, error, run } = useRequest(
     async (id: string) => {
@@ -37,7 +38,7 @@ function useLoadQuestionData() {
       resetComponents({ componentList, selectedId, copiedComponent: null }),
     );
 
-    dispatch(resetPageInfo({ title, desc, js, css, isPublished }));
+    resetPage({ title, desc, js, css, isPublished });
   }, [data]);
 
   useEffect(() => {

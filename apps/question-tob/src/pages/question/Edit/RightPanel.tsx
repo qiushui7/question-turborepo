@@ -1,6 +1,6 @@
-import React, { FC, useEffect, useState } from "react";
-import { FileTextOutlined, SettingOutlined } from "@ant-design/icons";
-import { Tabs } from "antd";
+import React, {FC, useEffect, useState} from "react";
+import {FileTextOutlined, SettingOutlined} from "@ant-design/icons";
+import {Tabs} from "antd";
 import ComponentProp from "./ComponentProp";
 import PageSetting from "./PageSetting";
 import useGetComponentsInfo from "../../../hooks/useGetComponentsInfo";

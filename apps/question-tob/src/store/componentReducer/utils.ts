@@ -1,4 +1,4 @@
-import { ComponentInfoType, ComponentsStateType } from "./index";
+import {ComponentInfoType, ComponentsStateType} from "./index";
 
 export const getNextSelectedId = (
   fe_id: string,

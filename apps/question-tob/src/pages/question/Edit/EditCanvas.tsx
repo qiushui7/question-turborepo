@@ -1,14 +1,10 @@
-import React, { FC, MouseEvent } from "react";
+import React, {FC, MouseEvent} from "react";
 import styles from "./EditCanvas.module.scss";
-import { Spin } from "antd";
+import {Spin} from "antd";
 import useGetComponentsInfo from "../../../hooks/useGetComponentsInfo";
-import {
-  changeSelectedId,
-  ComponentInfoType,
-  moveComponent,
-} from "../../../store/componentReducer";
-import { getComponentConfByType } from "../../../components/QuestionComponents";
-import { useDispatch } from "react-redux";
+import {changeSelectedId, ComponentInfoType, moveComponent,} from "../../../store/componentReducer";
+import {getComponentConfByType} from "../../../components/QuestionComponents";
+import {useDispatch} from "react-redux";
 import classNames from "classnames";
 import useBindCanvasKeyPress from "../../../hooks/useBindCanvasKeyPress";
 import SortableContainer from "../../../components/DragSortable/SortableContainer";

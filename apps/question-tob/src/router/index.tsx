@@ -1,5 +1,5 @@
 import {createBrowserRouter} from "react-router-dom";
-import { lazy } from "react";
+import {lazy} from "react";
 import MainLayout from "../layouts/MainLayout";
 import ManageLayout from "../layouts/ManageLayout";
 import QuestionLayout from "../layouts/QuestionLayout";

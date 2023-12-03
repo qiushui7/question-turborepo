@@ -1,6 +1,6 @@
-import { useSelector } from "react-redux";
-import { StateType } from "../store";
-import { ComponentsStateType } from "../store/componentReducer";
+import {useSelector} from "react-redux";
+import {StateType} from "../store";
+import {ComponentsStateType} from "../store/componentReducer";
 
 function useGetComponentsInfo() {
   const components = useSelector<StateType>(

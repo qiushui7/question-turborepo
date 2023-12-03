@@ -1,17 +1,17 @@
-import React, { ChangeEvent, FC, useState } from "react";
+import React, {ChangeEvent, FC, useState} from "react";
 import useGetComponentsInfo from "../../../hooks/useGetComponentsInfo";
-import { useDispatch } from "react-redux";
-import { Button, Input, message, Space } from "antd";
+import {useDispatch} from "react-redux";
+import {Button, Input, message, Space} from "antd";
 import {
-  changeComponentHidden,
-  changeComponentTitle,
-  changeSelectedId,
-  moveComponent,
-  toggleComponentLocked,
+    changeComponentHidden,
+    changeComponentTitle,
+    changeSelectedId,
+    moveComponent,
+    toggleComponentLocked,
 } from "../../../store/componentReducer";
 import styles from "./Layers.module.scss";
 import classNames from "classnames";
-import { EyeInvisibleOutlined, LockOutlined } from "@ant-design/icons";
+import {EyeInvisibleOutlined, LockOutlined} from "@ant-design/icons";
 import SortableContainer from "../../../components/DragSortable/SortableContainer";
 import SortableItem from "../../../components/DragSortable/SortableItem";
 

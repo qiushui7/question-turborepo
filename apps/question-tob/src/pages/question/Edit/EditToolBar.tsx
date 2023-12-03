@@ -1,33 +1,30 @@
-import React, { FC } from "react";
-import { Button, Space, Tooltip } from "antd";
+import React, {FC} from "react";
+import {Button, Space, Tooltip} from "antd";
 import {
-  BlockOutlined,
-  CopyOutlined,
-  DeleteOutlined,
-  DownOutlined,
-  EyeInvisibleOutlined,
-  LockOutlined,
-  RedoOutlined,
-  UndoOutlined,
-  UpOutlined,
+    BlockOutlined,
+    CopyOutlined,
+    DeleteOutlined,
+    DownOutlined,
+    EyeInvisibleOutlined,
+    LockOutlined,
+    RedoOutlined,
+    UndoOutlined,
+    UpOutlined,
 } from "@ant-design/icons";
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {
-  changeComponentHidden,
-  ComponentInfoType,
-  ComponentsStateType,
-  copySelectedComponent,
-  moveComponent,
-  pasteCopiedComponent,
-  removeSelectedComponent,
-  toggleComponentLocked,
+    changeComponentHidden,
+    ComponentInfoType,
+    ComponentsStateType,
+    copySelectedComponent,
+    moveComponent,
+    pasteCopiedComponent,
+    removeSelectedComponent,
+    toggleComponentLocked,
 } from "../../../store/componentReducer";
 import useGetComponentsInfo from "../../../hooks/useGetComponentsInfo";
-import {
-  ActionCreators as UndoActionCreators,
-  StateWithHistory,
-} from "redux-undo";
-import { StateType } from "../../../store";
+import {ActionCreators as UndoActionCreators, StateWithHistory,} from "redux-undo";
+import {StateType} from "../../../store";
 
 const EditToolBar: FC<Props> = (props) => {
   const components = useSelector<StateType>(

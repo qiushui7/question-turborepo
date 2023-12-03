@@ -1,8 +1,7 @@
 import React from "react";
 import Script from "next/script";
-import styles from "@/styles/Common.module.scss";
-import { getQuestion } from "@/services/question";
-import { Metadata } from "next";
+import {getQuestion} from "@/services/question";
+import {Metadata} from "next";
 
 export async function generateMetadata({
   params,

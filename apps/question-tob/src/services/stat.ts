@@ -1,4 +1,4 @@
-import axios, { ResDataType } from "./ajax";
+import axios, {ResDataType} from "./ajax";
 
 // 获取问卷的统计列表
 export async function getQuestionStatListService(

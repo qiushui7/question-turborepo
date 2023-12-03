@@ -1,11 +1,11 @@
-import React, { FC, useState } from "react";
-import { useRequest } from "ahooks";
-import { getQuestionStatListService } from "../../../services/stat";
-import { useParams } from "react-router-dom";
-import { STAT_PAGE_SIZE } from "../../../constant";
-import { Pagination, Spin, Table, Typography } from "antd";
+import React, {FC, useState} from "react";
+import {useRequest} from "ahooks";
+import {getQuestionStatListService} from "../../../services/stat";
+import {useParams} from "react-router-dom";
+import {STAT_PAGE_SIZE} from "../../../constant";
+import {Pagination, Spin, Table, Typography} from "antd";
 import useGetComponentsInfo from "../../../hooks/useGetComponentsInfo";
-import { textTypes } from "../../../components/QuestionComponents";
+import {textTypes} from "../../../components/QuestionComponents";
 
 const { Title } = Typography;
 

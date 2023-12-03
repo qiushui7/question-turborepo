@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { QuestionInputPropsType } from "../QuestionInput";
-import { QuestionInfoDefaultProps } from "./interface";
-import { Typography } from "antd";
+import React, {FC} from "react";
+import {QuestionInputPropsType} from "../QuestionInput";
+import {QuestionInfoDefaultProps} from "./interface";
+import {Typography} from "antd";
 
 const { Title, Paragraph } = Typography;
 

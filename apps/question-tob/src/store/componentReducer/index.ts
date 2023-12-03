@@ -1,8 +1,8 @@
-import { ComponentPropsType } from "../../components/QuestionComponents";
-import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
-import { getNextSelectedId, insertNewComponent } from "./utils";
+import {ComponentPropsType} from "../../components/QuestionComponents";
+import {createSlice, nanoid, PayloadAction} from "@reduxjs/toolkit";
+import {getNextSelectedId, insertNewComponent} from "./utils";
 import cloneDeep from "lodash.clonedeep";
-import { arrayMove } from "@dnd-kit/sortable";
+import {arrayMove} from "@dnd-kit/sortable";
 
 export type ComponentInfoType = {
   fe_id: string;

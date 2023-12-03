@@ -6,9 +6,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
     <>
       <html lang="en">
         <body>
-            <main className={styles.container}>
-                {children}
-            </main>
+          <main className={styles.container}>{children}</main>
         </body>
       </html>
     </>

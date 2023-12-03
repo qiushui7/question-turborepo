@@ -1,5 +1,5 @@
 import Component from "./Component";
-import { QuestionParagraphDefaultProps } from "./interface";
+import {QuestionParagraphDefaultProps} from "./interface";
 import PropComponent from "./PropComponent";
 
 export * from "./interface";

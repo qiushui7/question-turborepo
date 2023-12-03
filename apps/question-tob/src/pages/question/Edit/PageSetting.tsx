@@ -1,22 +1,21 @@
-import React, { FC, useEffect } from "react";
+import React, {FC, useEffect} from "react";
 import useGetPageInfo from "../../../hooks/useGetPageInfo";
-import { Form, Input } from "antd";
-import { useDispatch } from "react-redux";
-import { resetPageInfo } from "../../../store/pageInfoReducer";
+import {Form, Input} from "antd";
+import {usePageInfoStore} from "../../../store/pageInfoStore";
 
 const { TextArea } = Input;
 
 const PageSetting: FC<Props> = (props) => {
   const pageInfo = useGetPageInfo();
   const [form] = Form.useForm();
-  const dispatch = useDispatch();
+  const resetPageInfo = usePageInfoStore((state) => state.resetPage);
 
   useEffect(() => {
     form.setFieldsValue(pageInfo);
   }, [pageInfo]);
 
   const handleValuesChange = () => {
-    dispatch(resetPageInfo(form.getFieldsValue()));
+    resetPageInfo(form.getFieldsValue());
   };
 
   return (

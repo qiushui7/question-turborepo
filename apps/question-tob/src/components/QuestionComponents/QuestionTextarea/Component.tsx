@@ -1,9 +1,6 @@
-import React, { FC } from "react";
-import {
-  QuestionTextareaDefaultProps,
-  QuestionTextareaPropsType,
-} from "./interface";
-import { Input, Typography } from "antd";
+import React, {FC} from "react";
+import {QuestionTextareaDefaultProps, QuestionTextareaPropsType,} from "./interface";
+import {Input, Typography} from "antd";
 
 const { TextArea } = Input;
 

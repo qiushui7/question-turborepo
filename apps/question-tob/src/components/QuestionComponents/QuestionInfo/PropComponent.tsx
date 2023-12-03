@@ -1,6 +1,6 @@
-import React, { FC, useEffect } from "react";
-import { Form, Input } from "antd";
-import { QuestionInfoPropsType } from "./interface";
+import React, {FC, useEffect} from "react";
+import {Form, Input} from "antd";
+import {QuestionInfoPropsType} from "./interface";
 
 const { TextArea } = Input;
 

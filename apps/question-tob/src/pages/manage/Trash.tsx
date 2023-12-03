@@ -1,25 +1,12 @@
-import React, { FC, useState } from "react";
-import { useRequest, useTitle } from "ahooks";
-import {
-  Button,
-  Empty,
-  message,
-  Modal,
-  Space,
-  Spin,
-  Table,
-  Tag,
-  Typography,
-} from "antd";
+import React, {FC, useState} from "react";
+import {useRequest, useTitle} from "ahooks";
+import {Button, Empty, message, Modal, Space, Spin, Table, Tag, Typography,} from "antd";
 import styles from "./common.module.scss";
-import { ExclamationCircleOutlined } from "@ant-design/icons";
+import {ExclamationCircleOutlined} from "@ant-design/icons";
 import ListSearch from "../../components/ListSearch";
-import { useLoadQuestionListData } from "../../hooks/useLoadQuestionListData";
+import {useLoadQuestionListData} from "../../hooks/useLoadQuestionListData";
 import ListPage from "../../components/ListPage";
-import {
-  deleteQuestionsService,
-  updateQuestionService,
-} from "../../services/question";
+import {deleteQuestionsService, updateQuestionService,} from "../../services/question";
 
 const { Title } = Typography;
 const { confirm } = Modal;

@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useState } from "react";
-import { Typography } from "antd";
-import { useRequest } from "ahooks";
-import { getComponentStatService } from "../../../services/stat";
-import { useParams } from "react-router-dom";
-import { getComponentConfByType } from "../../../components/QuestionComponents";
+import React, {FC, useEffect, useState} from "react";
+import {Typography} from "antd";
+import {useRequest} from "ahooks";
+import {getComponentStatService} from "../../../services/stat";
+import {useParams} from "react-router-dom";
+import {getComponentConfByType} from "../../../components/QuestionComponents";
 
 const { Title } = Typography;
 

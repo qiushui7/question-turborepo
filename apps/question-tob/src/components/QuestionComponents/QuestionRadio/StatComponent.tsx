@@ -1,7 +1,7 @@
-import React, { FC, useMemo } from "react";
-import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
-import { STAT_COLORS } from "../../../constant";
-import { QuestionRadioStatPropsType } from "./interface";
+import React, {FC, useMemo} from "react";
+import {Cell, Pie, PieChart, ResponsiveContainer, Tooltip} from "recharts";
+import {STAT_COLORS} from "../../../constant";
+import {QuestionRadioStatPropsType} from "./interface";
 
 function format(n: number) {
   return (n * 100).toFixed(2);

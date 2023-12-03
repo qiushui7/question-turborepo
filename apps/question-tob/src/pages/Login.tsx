@@ -1,20 +1,12 @@
-import React, { FC, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, {FC, useEffect} from "react";
+import {Link, useNavigate} from "react-router-dom";
 import styles from "./Login.module.scss";
-import {
-  Button,
-  Checkbox,
-  Form,
-  Input,
-  message,
-  Space,
-  Typography,
-} from "antd";
-import { UserAddOutlined } from "@ant-design/icons";
-import { MANAGE_INDEX_PATHNAME, REGISTER_PATHNAME } from "../router";
-import { useRequest } from "ahooks";
-import { loginService } from "../services/user";
-import { setToken } from "../utils/user-token";
+import {Button, Checkbox, Form, Input, message, Space, Typography,} from "antd";
+import {UserAddOutlined} from "@ant-design/icons";
+import {MANAGE_INDEX_PATHNAME, REGISTER_PATHNAME} from "../router";
+import {useRequest} from "ahooks";
+import {loginService} from "../services/user";
+import {setToken} from "../utils/user-token";
 
 const { Title } = Typography;
 
@@ -48,13 +40,13 @@ const Login: FC = (props: Props) => {
 
   const { run } = useRequest(
     async (username, password) => {
-      const data = await loginService(username, password);
-      return data;
+      return await loginService(username, password);
     },
     {
       manual: true,
       onSuccess(result) {
         const { token } = result;
+        console.log("setToken");
         setToken(token);
         message.success("登录成功");
         nav(MANAGE_INDEX_PATHNAME);

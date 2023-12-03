@@ -1,19 +1,18 @@
-import React, { FC } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { LOGIN_PATHNAME } from "../router";
-import { UserOutlined } from "@ant-design/icons";
-import { Button, message } from "antd";
-import { removeToken } from "../utils/user-token";
-import { useGetUserInfo } from "../hooks/useGetUserInfo";
-import { useDispatch } from "react-redux";
-import { logoutReducer } from "../store/userReducer";
+import React, {FC} from "react";
+import {Link, useNavigate} from "react-router-dom";
+import {LOGIN_PATHNAME} from "../router";
+import {UserOutlined} from "@ant-design/icons";
+import {Button, message} from "antd";
+import {removeToken} from "../utils/user-token";
+import {useGetUserInfo} from "../hooks/useGetUserInfo";
+import {useUserStore} from "../store/userStore";
 
 const UserInfo: FC = (props: Props) => {
+  const logoutAction = useUserStore((state) => state.logout);
   const nav = useNavigate();
   const { username, nickname } = useGetUserInfo();
-  const dispatch = useDispatch();
   const logout = () => {
-    dispatch(logoutReducer());
+    logoutAction();
     removeToken();
     message.success("退出成功");
     nav(LOGIN_PATHNAME);

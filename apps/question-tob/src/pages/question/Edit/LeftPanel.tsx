@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { AppstoreOutlined, BarsOutlined } from "@ant-design/icons";
-import { Tabs } from "antd";
+import React, {FC} from "react";
+import {AppstoreOutlined, BarsOutlined} from "@ant-design/icons";
+import {Tabs} from "antd";
 import ComponentLib from "./ComponentLib";
 import Layers from "./Layers";
 

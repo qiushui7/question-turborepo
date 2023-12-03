@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { QuestionRadioDefaultProps, QuestionRadioPropsType } from "./interface";
-import { Radio, Space, Typography } from "antd";
+import React, {FC} from "react";
+import {QuestionRadioDefaultProps, QuestionRadioPropsType} from "./interface";
+import {Radio, Space, Typography} from "antd";
 
 const { Paragraph } = Typography;
 

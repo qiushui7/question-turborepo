@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { Button, Result } from "antd";
-import { useNavigate } from "react-router-dom";
-import { HOME_PATHNAME } from "../router";
+import React, {FC} from "react";
+import {Button, Result} from "antd";
+import {useNavigate} from "react-router-dom";
+import {HOME_PATHNAME} from "../router";
 
 const NotFound: FC = (props: Props) => {
   const nav = useNavigate();

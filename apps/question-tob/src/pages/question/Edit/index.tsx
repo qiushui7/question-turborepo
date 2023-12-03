@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React, {FC} from "react";
 import useLoadQuestionData from "../../../hooks/useLoadQuestionData";
 import styles from "./index.module.scss";
 import EditCanvas from "./EditCanvas";
-import { useDispatch } from "react-redux";
-import { changeSelectedId } from "../../../store/componentReducer";
+import {useDispatch} from "react-redux";
+import {changeSelectedId} from "../../../store/componentReducer";
 import LeftPanel from "./LeftPanel";
 import RightPanel from "./RightPanel";
 import EditHeader from "./EditHeader";

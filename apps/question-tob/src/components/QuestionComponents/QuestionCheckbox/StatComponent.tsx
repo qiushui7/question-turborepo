@@ -1,14 +1,6 @@
-import React, { FC } from "react";
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-import { QuestionCheckboxStatPropsType } from "./interface";
+import React, {FC} from "react";
+import {Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis,} from "recharts";
+import {QuestionCheckboxStatPropsType} from "./interface";
 
 const StatComponent: FC<QuestionCheckboxStatPropsType> = ({ stat }) => {
   return (

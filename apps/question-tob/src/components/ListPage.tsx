@@ -1,11 +1,7 @@
-import React, { FC, useEffect, useState } from "react";
-import { Pagination } from "antd";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import {
-  LIST_PAGE_PARAM_KEY,
-  LIST_PAGE_SIZE,
-  LIST_PAGE_SIZE_PARAM_KEY,
-} from "../constant";
+import React, {FC, useEffect, useState} from "react";
+import {Pagination} from "antd";
+import {useLocation, useNavigate, useSearchParams} from "react-router-dom";
+import {LIST_PAGE_PARAM_KEY, LIST_PAGE_SIZE, LIST_PAGE_SIZE_PARAM_KEY,} from "../constant";
 
 const ListPage: FC<Props> = (props) => {
   const nav = useNavigate();

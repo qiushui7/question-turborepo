@@ -1,5 +1,5 @@
-import { NextRequest } from "next/server";
-import { postAnswer } from "@/services/answer";
+import {NextRequest} from "next/server";
+import {postAnswer} from "@/services/answer";
 
 function genAnswerInfo(reqBody: any) {
   const answerList: any[] = [];

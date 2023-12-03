@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-import { useTitle } from "ahooks";
+import React, {FC} from "react";
+import {useTitle} from "ahooks";
 import styles from "./common.module.scss";
-import { Empty, Spin, Typography } from "antd";
+import {Empty, Spin, Typography} from "antd";
 import QuestionCard from "../../components/QuestionCard";
 import ListSearch from "../../components/ListSearch";
-import { useLoadQuestionListData } from "../../hooks/useLoadQuestionListData";
+import {useLoadQuestionListData} from "../../hooks/useLoadQuestionListData";
 import ListPage from "../../components/ListPage";
 
 const { Title } = Typography;

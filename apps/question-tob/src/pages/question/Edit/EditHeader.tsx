@@ -1,27 +1,26 @@
-import React, { ChangeEvent, FC, useState } from "react";
+import React, {ChangeEvent, FC, useState} from "react";
 import styles from "./EditHeader.module.scss";
-import { Button, Input, message, Space, Typography } from "antd";
-import { EditOutlined, LeftOutlined, LoadingOutlined } from "@ant-design/icons";
-import { useNavigate, useParams } from "react-router-dom";
+import {Button, Input, message, Space, Typography} from "antd";
+import {EditOutlined, LeftOutlined, LoadingOutlined} from "@ant-design/icons";
+import {useNavigate, useParams} from "react-router-dom";
 import EditToolBar from "./EditToolBar";
 import useGetPageInfo from "../../../hooks/useGetPageInfo";
-import { useDispatch } from "react-redux";
-import { changePageTitle } from "../../../store/pageInfoReducer";
 import useGetComponentsInfo from "../../../hooks/useGetComponentsInfo";
-import { useDebounceEffect, useKeyPress, useRequest } from "ahooks";
-import { updateQuestionService } from "../../../services/question";
+import {useDebounceEffect, useKeyPress, useRequest} from "ahooks";
+import {updateQuestionService} from "../../../services/question";
+import {usePageInfoStore} from "../../../store/pageInfoStore";
 
 const { Title } = Typography;
 
 const TitleElem: FC = () => {
   const { title } = useGetPageInfo();
   const [editState, setEditState] = useState(false);
-  const dispatch = useDispatch();
+  const changePageTitle = usePageInfoStore((state) => state.changePageTitle);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newTitle = event.target.value.trim();
     if (!newTitle) return;
-    dispatch(changePageTitle(newTitle));
+    changePageTitle(newTitle);
   };
 
   if (editState) {

@@ -1,12 +1,12 @@
-import React, { FC, useEffect, useMemo, useRef, useState } from "react";
+import React, {FC, useEffect, useMemo, useRef, useState} from "react";
 import styles from "./common.module.scss";
 import QuestionCard from "../../components/QuestionCard";
-import { useSearchParams } from "react-router-dom";
-import { useDebounceFn, useRequest, useTitle } from "ahooks";
-import { Empty, Spin, Typography } from "antd";
+import {useSearchParams} from "react-router-dom";
+import {useDebounceFn, useRequest, useTitle} from "ahooks";
+import {Empty, Spin, Typography} from "antd";
 import ListSearch from "../../components/ListSearch";
-import { getQuestionListService } from "../../services/question";
-import { LIST_PAGE_SIZE, LIST_SEARCH_PARAM_KEY } from "../../constant";
+import {getQuestionListService} from "../../services/question";
+import {LIST_PAGE_SIZE, LIST_SEARCH_PARAM_KEY} from "../../constant";
 
 const { Title } = Typography;
 

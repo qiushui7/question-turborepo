@@ -1,5 +1,5 @@
-import { getQuestion } from "@/services/question";
-import { getComponent } from "@/components/QuestionComponents";
+import {getQuestion} from "@/services/question";
+import {getComponent} from "@/components/QuestionComponents";
 import styles from "@/styles/Question.module.scss";
 
 export default async function Question({ params }: { params: { id: string } }) {

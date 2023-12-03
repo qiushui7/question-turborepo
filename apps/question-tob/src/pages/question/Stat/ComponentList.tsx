@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, {FC} from "react";
 import classNames from "classnames";
 import useGetComponentsInfo from "../../../hooks/useGetComponentsInfo";
-import { getComponentConfByType } from "../../../components/QuestionComponents";
+import {getComponentConfByType} from "../../../components/QuestionComponents";
 import styles from "./ComponentList.module.scss";
 
 type PropsType = {

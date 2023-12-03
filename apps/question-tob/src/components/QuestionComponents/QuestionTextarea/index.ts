@@ -1,5 +1,5 @@
 import Component from "./Component";
-import { QuestionTextareaDefaultProps } from "./interface";
+import {QuestionTextareaDefaultProps} from "./interface";
 import PropComponent from "./PropComponent";
 
 export * from "./interface";
