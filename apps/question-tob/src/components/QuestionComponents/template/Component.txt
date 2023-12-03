@@ -1,0 +1,13 @@
+import React, {FC} from 'react';
+import { {{componentName}}DefaultProps, {{componentName}}PropsType } from "./interface";
+
+const {{componentName}}:FC<{{componentName}}PropsType> = (props) => {
+
+    return (
+        <>
+        </>
+    );
+};
+
+
+export default {{componentName}};

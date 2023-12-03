@@ -1,0 +1,13 @@
+import Component from "./Component";
+import { {{componentName}}DefaultProps } from "./interface";
+import PropComponent from "./PropComponent";
+
+export * from './interface'
+
+export default {
+    title: '',
+    type: '',
+    Component,
+    PropComponent,
+    defaultProps:{{componentName}}DefaultProps
+}

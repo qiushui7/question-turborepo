@@ -1,0 +1,14 @@
+export type {{componentName}}PropsType = {
+    text?: string
+    level?: 1 | 2 | 3 | 4 | 5
+    isCenter?: boolean
+
+    onChange?: (newProps: {{componentName}}PropsType) => void
+    disabled?: boolean
+}
+
+export const {{componentName}}DefaultProps: {{componentName}}PropsType = {
+    text: '一行标题',
+    level: 1,
+    isCenter: false,
+}
