@@ -1,38 +1,38 @@
-module.exports={
+module.exports = {
     webpack: {
         configure(webpackConfig) {
-            if (webpackConfig.mode === 'production') {
+            if (webpackConfig.mode === "production") {
                 // 抽离公共代码，只在生产环境
                 if (webpackConfig.optimization == null) {
                     webpackConfig.optimization = {}
                 }
                 webpackConfig.optimization.splitChunks = {
-                    chunks: 'all',
+                    chunks: "all",
                     cacheGroups: {
                         antd: {
-                            name: 'antd-chunk',
+                            name: "antd-chunk",
                             test: /antd/,
-                            priority: 100,
+                            priority: 100
                         },
                         reactDom: {
-                            name: 'reactDom-chunk',
+                            name: "reactDom-chunk",
                             test: /react-dom/,
-                            priority: 99,
+                            priority: 99
                         },
                         vendors: {
-                            name: 'vendors-chunk',
+                            name: "vendors-chunk",
                             test: /node_modules/,
-                            priority: 98,
-                        },
-                    },
+                            priority: 98
+                        }
+                    }
                 }
             }
             return webpackConfig
-        },
+        }
     },
     devServer: {
-        proxy:{
-            '/api':'http://localhost:3001'
+        proxy: {
+            "/api": "http://localhost:3001"
         }
     }
 }

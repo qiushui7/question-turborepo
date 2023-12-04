@@ -1,7 +1,7 @@
-import { useEffect } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
-import { isLoginOrRegister, isNoNeedUserInfo, LOGIN_PATHNAME, MANAGE_INDEX_PATHNAME } from "../router/index"
-import { getToken } from "../utils/user-token"
+import {useEffect} from "react"
+import {useLocation, useNavigate} from "react-router-dom"
+import {isLoginOrRegister, isNoNeedUserInfo, LOGIN_PATHNAME, MANAGE_INDEX_PATHNAME} from "../router/index"
+import {getToken} from "../utils/user-token"
 
 function useNavPage(waitingUserData: boolean) {
     const token = getToken()

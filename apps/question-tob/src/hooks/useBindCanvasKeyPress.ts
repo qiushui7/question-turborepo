@@ -1,16 +1,5 @@
-import { useKeyPress } from "ahooks"
-import { useDispatch, useSelector } from "react-redux"
-// import { ActionCreators as UndoActionCreators } from 'redux-undo'
-import {
-    ComponentsStateType,
-    copySelectedComponent,
-    pasteCopiedComponent,
-    removeSelectedComponent,
-    selectNextComponent,
-    selectPrevComponent
-} from "../store/componentReducer"
-import { ActionCreators as UndoActionCreators, StateWithHistory } from "redux-undo"
-import { StateType } from "../store"
+import {useKeyPress} from "ahooks"
+import {useComponentStore, useUndoComponent} from "../store/componentStore"
 
 /**
  * 判断 activeElem 是否合法
@@ -27,47 +16,54 @@ function isActiveElementValid() {
 }
 
 function useBindCanvasKeyPress() {
-    const dispatch = useDispatch()
-    const components = useSelector<StateType>(
-        (state) => state.components
-    ) as StateWithHistory<ComponentsStateType>
+    const {
+        selectNextComponent,
+        selectPrevComponent,
+        pasteCopiedComponent,
+        copySelectedComponent,
+        removeSelectedComponent
+    } = useComponentStore((state) => ({
+        selectNextComponent: state.selectNextComponent,
+        selectPrevComponent: state.selectPrevComponent,
+        pasteCopiedComponent: state.pasteCopiedComponent,
+        copySelectedComponent: state.copySelectedComponent,
+        removeSelectedComponent: state.removeSelectedComponent
+    }))
+    const { undo, redo, pastStates } = useUndoComponent((state) => state)
     // 删除组件
     useKeyPress(["backspace", "delete"], () => {
         if (!isActiveElementValid()) return
-        dispatch(removeSelectedComponent())
+        removeSelectedComponent()
     })
     // 复制
     useKeyPress(["ctrl.c", "meta.c"], () => {
         if (!isActiveElementValid()) return
-        dispatch(copySelectedComponent())
+        copySelectedComponent()
     })
 
     // 粘贴
     useKeyPress(["ctrl.v", "meta.v"], () => {
         if (!isActiveElementValid()) return
-        dispatch(pasteCopiedComponent())
+        pasteCopiedComponent()
     })
 
     useKeyPress(["uparrow"], () => {
         if (!isActiveElementValid()) return
-        dispatch(selectPrevComponent())
+        selectPrevComponent()
     })
 
     useKeyPress(["downarrow"], () => {
         if (!isActiveElementValid()) return
-        dispatch(selectNextComponent())
+        selectNextComponent()
     })
     // 撤销
     useKeyPress(
         ["ctrl.z", "meta.z"],
         () => {
             if (!isActiveElementValid()) return
-            if (
-                components?.past[components.past.length - 1]?.componentList
-                    .length !== 0
-            ) {
-                dispatch(UndoActionCreators.undo())
-            }
+            if (pastStates[pastStates.length - 1].componentList?.length === 0)
+                return
+            undo()
         },
         {
             exactMatch: true // 严格匹配
@@ -77,7 +73,7 @@ function useBindCanvasKeyPress() {
     // 重做
     useKeyPress(["ctrl.y", "meta.shift.z"], () => {
         if (!isActiveElementValid()) return
-        dispatch(UndoActionCreators.redo())
+        redo()
     })
 }
 

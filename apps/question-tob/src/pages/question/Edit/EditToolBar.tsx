@@ -1,5 +1,5 @@
-import React, { FC } from "react"
-import { Button, Space, Tooltip } from "antd"
+import React, {FC} from "react"
+import {Button, Space, Tooltip} from "antd"
 import {
     BlockOutlined,
     CopyOutlined,
@@ -11,26 +11,11 @@ import {
     UndoOutlined,
     UpOutlined
 } from "@ant-design/icons"
-import { useDispatch, useSelector } from "react-redux"
-import {
-    changeComponentHidden,
-    ComponentInfoType,
-    ComponentsStateType,
-    copySelectedComponent,
-    moveComponent,
-    pasteCopiedComponent,
-    removeSelectedComponent,
-    toggleComponentLocked
-} from "../../../store/componentReducer"
+import {ComponentInfoType, useComponentStore, useUndoComponent} from "../../../store/componentStore"
 import useGetComponentsInfo from "../../../hooks/useGetComponentsInfo"
-import { ActionCreators as UndoActionCreators, StateWithHistory } from "redux-undo"
-import { StateType } from "../../../store"
 
 const EditToolBar: FC<Props> = (props) => {
-    const components = useSelector<StateType>(
-        (state) => state.components
-    ) as StateWithHistory<ComponentsStateType>
-    const dispatch = useDispatch()
+    const { undo, redo, pastStates } = useUndoComponent((state) => state)
     const { selectedId, componentList, selectedComponent, copiedComponent } =
         useGetComponentsInfo()
     const { isLocked } = selectedComponent || ({} as ComponentInfoType)
@@ -38,55 +23,65 @@ const EditToolBar: FC<Props> = (props) => {
     const selectedIndex = componentList.findIndex((c) => c.fe_id === selectedId)
     const isFirst = selectedIndex <= 0 // 第一个
     const isLast = selectedIndex + 1 >= length // 最后一个
+    const {
+        pasteCopiedComponent,
+        copySelectedComponent,
+        removeSelectedComponent,
+        changeComponentHidden,
+        toggleComponentLocked,
+        moveComponent
+    } = useComponentStore((state) => ({
+        pasteCopiedComponent: state.pasteCopiedComponent,
+        copySelectedComponent: state.copySelectedComponent,
+        removeSelectedComponent: state.removeSelectedComponent,
+        changeComponentHidden: state.changeComponentHidden,
+        toggleComponentLocked: state.toggleComponentLocked,
+        moveComponent: state.moveComponent
+    }))
 
     const handleDelete = () => {
-        dispatch(removeSelectedComponent())
+        removeSelectedComponent()
     }
     const handleHidden = () => {
-        dispatch(changeComponentHidden({ fe_id: selectedId, isHidden: true }))
+        changeComponentHidden({ fe_id: selectedId, isHidden: true })
     }
     const handleLock = () => {
-        dispatch(toggleComponentLocked({ fe_id: selectedId }))
+        toggleComponentLocked({ fe_id: selectedId })
     }
     const copy = () => {
-        dispatch(copySelectedComponent())
+        copySelectedComponent()
     }
     const paste = () => {
-        dispatch(pasteCopiedComponent())
+        pasteCopiedComponent()
     }
-    function moveUp() {
+    const moveUp = () => {
         if (isFirst) return
-        dispatch(
-            moveComponent({
-                oldIndex: selectedIndex,
-                newIndex: selectedIndex - 1
-            })
-        )
+
+        moveComponent({
+            oldIndex: selectedIndex,
+            newIndex: selectedIndex - 1
+        })
     }
 
     // 下移
-    function moveDown() {
+    const moveDown = () => {
         if (isLast) return
-        dispatch(
-            moveComponent({
-                oldIndex: selectedIndex,
-                newIndex: selectedIndex + 1
-            })
-        )
+
+        moveComponent({
+            oldIndex: selectedIndex,
+            newIndex: selectedIndex + 1
+        })
     }
 
-    function undo() {
-        if (
-            components?.past[components.past.length - 1]?.componentList
-                .length !== 0
-        ) {
-            dispatch(UndoActionCreators.undo())
-        }
+    const handleUndo = () => {
+        if (pastStates[pastStates.length - 1].componentList?.length === 0)
+            return
+        undo()
     }
 
     // 重做
-    function redo() {
-        dispatch(UndoActionCreators.redo())
+    const handleRedo = () => {
+        redo()
     }
 
     return (
@@ -149,14 +144,14 @@ const EditToolBar: FC<Props> = (props) => {
                 <Button
                     shape="circle"
                     icon={<UndoOutlined />}
-                    onClick={undo}
+                    onClick={handleUndo}
                 ></Button>
             </Tooltip>
             <Tooltip title="重做">
                 <Button
                     shape="circle"
                     icon={<RedoOutlined />}
-                    onClick={redo}
+                    onClick={handleRedo}
                 ></Button>
             </Tooltip>
         </Space>

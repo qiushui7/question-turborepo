@@ -1,10 +1,10 @@
-import React, { FC } from "react"
-import { Outlet, useLocation, useNavigate } from "react-router-dom"
+import React, {FC} from "react"
+import {Outlet, useLocation, useNavigate} from "react-router-dom"
 import styles from "./ManageLayout.module.scss"
-import { Button, Divider, message, Space } from "antd"
-import { BarsOutlined, DeleteOutlined, PlusOutlined, StarOutlined } from "@ant-design/icons"
-import { createQuestionService } from "../services/question"
-import { useRequest } from "ahooks"
+import {Button, Divider, message, Space} from "antd"
+import {BarsOutlined, DeleteOutlined, PlusOutlined, StarOutlined} from "@ant-design/icons"
+import {createQuestionService} from "../services/question"
+import {useRequest} from "ahooks"
 
 type Props = {}
 

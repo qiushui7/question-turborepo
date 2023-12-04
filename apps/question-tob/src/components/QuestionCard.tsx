@@ -1,6 +1,6 @@
-import React, { FC, useState } from "react"
+import React, {FC, useState} from "react"
 import styles from "./QuestionCard.module.scss"
-import { Button, Divider, message, Modal, Popconfirm, Space, Tag } from "antd"
+import {Button, Divider, message, Modal, Popconfirm, Space, Tag} from "antd"
 import {
     CopyOutlined,
     DeleteOutlined,
@@ -9,9 +9,9 @@ import {
     LineChartOutlined,
     StarOutlined
 } from "@ant-design/icons"
-import { Link, useNavigate } from "react-router-dom"
-import { useRequest } from "ahooks"
-import { duplicateQuestionService, updateQuestionService } from "../services/question"
+import {Link, useNavigate} from "react-router-dom"
+import {useRequest} from "ahooks"
+import {duplicateQuestionService, updateQuestionService} from "../services/question"
 
 type Props = {
     _id: string

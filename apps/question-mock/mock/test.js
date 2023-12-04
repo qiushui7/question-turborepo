@@ -1,11 +1,11 @@
-const Mock = require('mockjs')
+const Mock = require("mockjs")
 
 const Random = Mock.Random
 
 module.exports = [
     {
-        url: '/api/test',
-        method: 'get',
+        url: "/api/test",
+        method: "get",
         response() {
             return {
                 errno: 0,

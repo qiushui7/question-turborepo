@@ -1,11 +1,11 @@
-import { FC } from "react"
-import QuestionInputConf, { QuestionInputPropsType } from "./QuestionInput"
-import QuestionTitleConf, { QuestionTitlePropsType } from "./QuestionTitle"
-import QuestionParagraphConf, { QuestionParagraphPropType } from "./QuestionParagraph"
-import QuestionInfoConf, { QuestionInfoPropsType } from "./QuestionInfo"
-import QuestionTextareaConf, { QuestionTextareaPropsType } from "./QuestionTextarea"
-import QuestionRadioConf, { QuestionRadioPropsType, QuestionRadioStatPropsType } from "./QuestionRadio"
-import QuestionCheckboxConf, { QuestionCheckboxPropsType, QuestionCheckboxStatPropsType } from "./QuestionCheckbox"
+import {FC} from "react"
+import QuestionInputConf, {QuestionInputPropsType} from "./QuestionInput"
+import QuestionTitleConf, {QuestionTitlePropsType} from "./QuestionTitle"
+import QuestionParagraphConf, {QuestionParagraphPropType} from "./QuestionParagraph"
+import QuestionInfoConf, {QuestionInfoPropsType} from "./QuestionInfo"
+import QuestionTextareaConf, {QuestionTextareaPropsType} from "./QuestionTextarea"
+import QuestionRadioConf, {QuestionRadioPropsType, QuestionRadioStatPropsType} from "./QuestionRadio"
+import QuestionCheckboxConf, {QuestionCheckboxPropsType, QuestionCheckboxStatPropsType} from "./QuestionCheckbox"
 
 export type ComponentPropsType = QuestionInputPropsType &
     QuestionTitlePropsType &

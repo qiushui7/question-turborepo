@@ -1,25 +1,22 @@
-import React, { FC, useCallback } from "react"
-import { componentConfGroup, ComponentConfType } from "../../../components/QuestionComponents"
-import { Typography } from "antd"
+import React, {FC, useCallback} from "react"
+import {componentConfGroup, ComponentConfType} from "../../../components/QuestionComponents"
+import {Typography} from "antd"
 import styles from "./ComponentLib.module.scss"
-import { useDispatch } from "react-redux"
-import { addComponent } from "../../../store/componentReducer"
-import { nanoid } from "@reduxjs/toolkit"
+import {nanoid} from "nanoid"
+import {useComponentStore} from "../../../store/componentStore"
 
 const { Title } = Typography
 
 const GenComponent = (c: ComponentConfType) => {
     const { title, type, Component, defaultProps } = c
-    const dispatch = useDispatch()
+    const addComponent = useComponentStore((state) => state.addComponent)
     const handleClick = useCallback(() => {
-        dispatch(
-            addComponent({
-                fe_id: nanoid(),
-                title,
-                type,
-                props: defaultProps
-            })
-        )
+        addComponent({
+            fe_id: nanoid(),
+            title,
+            type,
+            props: defaultProps
+        })
     }, [])
 
     return (

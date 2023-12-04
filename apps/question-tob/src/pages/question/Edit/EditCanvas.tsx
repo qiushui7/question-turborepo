@@ -1,10 +1,9 @@
-import React, { FC, MouseEvent } from "react"
+import React, {FC, MouseEvent} from "react"
 import styles from "./EditCanvas.module.scss"
-import { Spin } from "antd"
+import {Spin} from "antd"
 import useGetComponentsInfo from "../../../hooks/useGetComponentsInfo"
-import { changeSelectedId, ComponentInfoType, moveComponent } from "../../../store/componentReducer"
-import { getComponentConfByType } from "../../../components/QuestionComponents"
-import { useDispatch } from "react-redux"
+import {ComponentInfoType, useComponentStore} from "../../../store/componentStore"
+import {getComponentConfByType} from "../../../components/QuestionComponents"
 import classNames from "classnames"
 import useBindCanvasKeyPress from "../../../hooks/useBindCanvasKeyPress"
 import SortableContainer from "../../../components/DragSortable/SortableContainer"
@@ -21,11 +20,14 @@ function genComponent(componentInfo: ComponentInfoType) {
 
 const EditCanvas: FC<Props> = ({ loading }) => {
     const { componentList, selectedId } = useGetComponentsInfo()
-    const dispatch = useDispatch()
+    const { changeSelectedId, moveComponent } = useComponentStore((state) => ({
+        changeSelectedId: state.changeSelectedId,
+        moveComponent: state.moveComponent
+    }))
     useBindCanvasKeyPress()
     const handleClick = (event: MouseEvent, id: string) => {
         event.stopPropagation()
-        dispatch(changeSelectedId(id))
+        changeSelectedId(id)
     }
 
     if (loading) {
@@ -37,7 +39,7 @@ const EditCanvas: FC<Props> = ({ loading }) => {
     }
 
     const handleDragEnd = (oldIndex: number, newIndex: number) => {
-        dispatch(moveComponent({ newIndex, oldIndex }))
+        moveComponent({ newIndex, oldIndex })
     }
 
     const componentListWithId = componentList.map((c) => {

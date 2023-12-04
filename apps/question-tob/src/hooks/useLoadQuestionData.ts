@@ -1,15 +1,14 @@
-import { useParams } from "react-router-dom"
-import { useEffect } from "react"
-import { useRequest } from "ahooks"
-import { getQuestionService } from "../services/question"
-import { useDispatch } from "react-redux"
-import { resetComponents } from "../store/componentReducer"
-import { usePageInfoStore } from "../store/pageInfoStore"
+import {useParams} from "react-router-dom"
+import {useEffect} from "react"
+import {useRequest} from "ahooks"
+import {getQuestionService} from "../services/question"
+import {usePageInfoStore} from "../store/pageInfoStore"
+import {useComponentStore} from "../store/componentStore"
 
 function useLoadQuestionData() {
     const { id = "" } = useParams()
     const resetPage = usePageInfoStore((state) => state.resetPage)
-    const dispatch = useDispatch()
+    const resetComponents = useComponentStore((state) => state.resetComponents)
     const { data, loading, error, run } = useRequest(
         async (id: string) => {
             if (!id) throw new Error("没有问卷 id")
@@ -34,13 +33,12 @@ function useLoadQuestionData() {
         if (componentList.length > 0) {
             selectedId = componentList[0].fe_id
         }
-        dispatch(
-            resetComponents({
-                componentList,
-                selectedId,
-                copiedComponent: null
-            })
-        )
+        console.log(componentList)
+        resetComponents({
+            componentList,
+            selectedId,
+            copiedComponent: null
+        })
 
         resetPage({ title, desc, js, css, isPublished })
     }, [data])

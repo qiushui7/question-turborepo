@@ -3,7 +3,7 @@
  * @author 双越老师
  */
 
-const Mock = require('mockjs')
+const Mock = require("mockjs")
 const Random = Mock.Random
 
 function getQuestionList(opt = {}) {
@@ -14,10 +14,10 @@ function getQuestionList(opt = {}) {
             _id: Random.id(),
             title: Random.ctitle(),
             isPublished: Random.boolean(),
-            isStar:isStar?isStar:Random.boolean(),
+            isStar: isStar ? isStar : Random.boolean(),
             answerCount: Random.natural(50, 100),
             createdAt: Random.datetime(),
-            isDeleted,  // 假删除
+            isDeleted // 假删除
         })
     }
     return list

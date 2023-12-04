@@ -1,8 +1,8 @@
-import React, { FC } from "react"
-import { Button, Checkbox, Form, Input, Space } from "antd"
-import { nanoid } from "@reduxjs/toolkit"
-import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons"
-import { OptionType, QuestionCheckboxPropsType } from "./interface"
+import React, {FC} from "react"
+import {Button, Checkbox, Form, Input, Space} from "antd"
+import {nanoid} from "nanoid"
+import {MinusCircleOutlined, PlusOutlined} from "@ant-design/icons"
+import {OptionType, QuestionCheckboxPropsType} from "./interface"
 
 const PropComponent: FC<QuestionCheckboxPropsType> = (
     props: QuestionCheckboxPropsType

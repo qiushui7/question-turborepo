@@ -1,23 +1,28 @@
-import React, { ChangeEvent, FC, useState } from "react"
+import React, {ChangeEvent, FC, useState} from "react"
 import useGetComponentsInfo from "../../../hooks/useGetComponentsInfo"
-import { useDispatch } from "react-redux"
-import { Button, Input, message, Space } from "antd"
-import {
-    changeComponentHidden,
-    changeComponentTitle,
-    changeSelectedId,
-    moveComponent,
-    toggleComponentLocked
-} from "../../../store/componentReducer"
+import {Button, Input, message, Space} from "antd"
 import styles from "./Layers.module.scss"
 import classNames from "classnames"
-import { EyeInvisibleOutlined, LockOutlined } from "@ant-design/icons"
+import {EyeInvisibleOutlined, LockOutlined} from "@ant-design/icons"
 import SortableContainer from "../../../components/DragSortable/SortableContainer"
 import SortableItem from "../../../components/DragSortable/SortableItem"
+import {useComponentStore} from "../../../store/componentStore"
 
 const Layers: FC<Props> = (props) => {
     const { componentList, selectedId } = useGetComponentsInfo()
-    const dispatch = useDispatch()
+    const {
+        changeSelectedId,
+        changeComponentTitle,
+        changeComponentHidden,
+        toggleComponentLocked,
+        moveComponent
+    } = useComponentStore((state) => ({
+        changeSelectedId: state.changeSelectedId,
+        changeComponentTitle: state.changeComponentTitle,
+        changeComponentHidden: state.changeComponentHidden,
+        toggleComponentLocked: state.toggleComponentLocked,
+        moveComponent: state.moveComponent
+    }))
 
     const [changingTitleId, setChangingTitleId] = useState("")
 
@@ -29,7 +34,7 @@ const Layers: FC<Props> = (props) => {
         }
         if (fe_id !== selectedId) {
             // 当前组件未被选中，执行选中
-            dispatch(changeSelectedId(fe_id))
+            changeSelectedId(fe_id)
             setChangingTitleId("")
             return
         }
@@ -42,19 +47,19 @@ const Layers: FC<Props> = (props) => {
         const newTitle = event.target.value.trim()
         if (!newTitle) return
         if (!selectedId) return
-        dispatch(changeComponentTitle({ fe_id: selectedId, title: newTitle }))
+        changeComponentTitle({ fe_id: selectedId, title: newTitle })
     }
 
     const changeHidden = (fe_id: string, isHidden: boolean) => {
-        dispatch(changeComponentHidden({ fe_id, isHidden }))
+        changeComponentHidden({ fe_id, isHidden })
     }
 
     const changeLocked = (fe_id: string) => {
-        dispatch(toggleComponentLocked({ fe_id }))
+        toggleComponentLocked({ fe_id })
     }
 
     const handleDragEnd = (oldIndex: number, newIndex: number) => {
-        dispatch(moveComponent({ newIndex, oldIndex }))
+        moveComponent({ newIndex, oldIndex })
     }
 
     const componentListWithId = componentList.map((c) => {

@@ -1,8 +1,7 @@
-import React, { FC } from "react"
+import React, {FC} from "react"
 import useGetComponentsInfo from "../../../hooks/useGetComponentsInfo"
-import { ComponentPropsType, getComponentConfByType } from "../../../components/QuestionComponents"
-import { useDispatch } from "react-redux"
-import { changeComponentProps } from "../../../store/componentReducer"
+import {ComponentPropsType, getComponentConfByType} from "../../../components/QuestionComponents"
+import {useComponentStore} from "../../../store/componentStore"
 
 const NoProp: FC = () => {
     return <div style={{ textAlign: "center" }}>未选中组件</div>
@@ -10,7 +9,9 @@ const NoProp: FC = () => {
 
 const ComponentProp: FC<Props> = () => {
     const { selectedComponent } = useGetComponentsInfo()
-    const dispatch = useDispatch()
+    const changeComponentProps = useComponentStore(
+        (state) => state.changeComponentProps
+    )
     if (selectedComponent == null) return <NoProp />
 
     const { type, props, isLocked, isHidden } = selectedComponent
@@ -19,10 +20,11 @@ const ComponentProp: FC<Props> = () => {
     if (componentConf == null) return <NoProp />
 
     const { PropComponent } = componentConf
+
     const changeProps = (newProps: ComponentPropsType) => {
         if (selectedComponent == null) return
         const { fe_id } = selectedComponent
-        dispatch(changeComponentProps({ fe_id, newProps }))
+        changeComponentProps({ fe_id, newProps })
     }
     return (
         <PropComponent

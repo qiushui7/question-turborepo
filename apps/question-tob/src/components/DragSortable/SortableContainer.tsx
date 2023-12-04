@@ -1,6 +1,6 @@
-import React, { FC, JSX } from "react"
-import { closestCenter, DndContext, DragEndEvent, MouseSensor, useSensor, useSensors } from "@dnd-kit/core"
-import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable"
+import React, {FC, JSX} from "react"
+import {closestCenter, DndContext, DragEndEvent, MouseSensor, useSensor, useSensors} from "@dnd-kit/core"
+import {SortableContext, verticalListSortingStrategy} from "@dnd-kit/sortable"
 
 const SortableContainer: FC<Props> = (props) => {
     const { children, items, onDragEnd } = props

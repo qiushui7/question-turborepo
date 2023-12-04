@@ -1,12 +1,12 @@
-const Mock = require('mockjs')
+const Mock = require("mockjs")
 
 const Random = Mock.Random
 
 module.exports = [
     {
         // 获取用户信息
-        url: '/api/user/info',
-        method: 'get',
+        url: "/api/user/info",
+        method: "get",
         response() {
             return {
                 errno: 0,
@@ -22,8 +22,8 @@ module.exports = [
     },
     {
         // 注册
-        url: '/api/user/register',
-        method: 'post',
+        url: "/api/user/register",
+        method: "post",
         response() {
             return {
                 errno: 0
@@ -32,8 +32,8 @@ module.exports = [
     },
     {
         // 登录
-        url: '/api/user/login',
-        method: 'post',
+        url: "/api/user/login",
+        method: "post",
         response() {
             return {
                 errno: 0,

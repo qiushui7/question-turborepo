@@ -1,6 +1,6 @@
-import { create } from "zustand"
+import {create} from "zustand"
 
-export type PageInfoType = {
+export type PageInfoStateType = {
     title: string
     desc?: string
     js?: string
@@ -8,12 +8,12 @@ export type PageInfoType = {
     isPublished?: boolean
 }
 
-export type PageInfoAction = {
-    resetPage: (payload: PageInfoType) => void
+export type PageInfoStateAction = {
+    resetPage: (payload: PageInfoStateType) => void
     changePageTitle: (title: string) => void
 }
 
-export const usePageInfoStore = create<PageInfoType & PageInfoAction>(
+export const usePageInfoStore = create<PageInfoStateType & PageInfoStateAction>(
     (set) => ({
         title: "",
         desc: "",
@@ -23,7 +23,7 @@ export const usePageInfoStore = create<PageInfoType & PageInfoAction>(
             set(() => payload)
         },
         changePageTitle: (title) => {
-            return set(() => ({
+            set(() => ({
                 title
             }))
         }

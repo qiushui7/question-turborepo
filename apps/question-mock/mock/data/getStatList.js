@@ -3,8 +3,8 @@
  * @author 双越老师
  */
 
-const Mock = require('mockjs')
-const getComponentList = require('./getComponentList')
+const Mock = require("mockjs")
+const getComponentList = require("./getComponentList")
 
 const Random = Mock.Random
 
@@ -20,20 +20,20 @@ module.exports = function getStatList(len = 10) {
         }
 
         // 增加各个组件的 id value
-        componentList.forEach(c => {
+        componentList.forEach((c) => {
             const { fe_id, type, props } = c
 
-            switch(type) {
-                case 'questionInput':
+            switch (type) {
+                case "questionInput":
                     stat[fe_id] = Random.ctitle()
                     break
-                case 'questionTextarea':
+                case "questionTextarea":
                     stat[fe_id] = Random.ctitle()
                     break
-                case 'questionRadio':
+                case "questionRadio":
                     stat[fe_id] = props.options[0].text
                     break
-                case 'questionCheckbox':
+                case "questionCheckbox":
                     stat[fe_id] = `${props.list[0].text},${props.list[1].text}`
                     break
             }
